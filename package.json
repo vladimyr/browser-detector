@@ -1,0 +1,25 @@
+{
+  "name": "browser-detector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify -t bubleify index.js > ./dist/bundle.js",
+    "build-dev": "browserify -t bubleify index.js -d > ./dist/bundle.js",
+    "watch": "watchify index.js -t bubleify -d -o ./dist/bundle.js -v",
+    "deploy": "surge -p ./dist/ -d detector.surge.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "vladimyr",
+  "license": "MIT",
+  "devDependencies": {
+    "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
+    "browserify": "^14.1.0",
+    "bubleify": "^0.7.0",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "hyperscript": "^2.0.2",
+    "ua-parser-js": "^0.7.12"
+  }
+}

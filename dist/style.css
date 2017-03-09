@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.inspector-json {
+  padding: 6px 25px;
+}
+
+.inspector .title {
+  display: inline-block;
+  margin: 20px 25px 0 25px;
+  padding: 4px 8px;
+  background: #1d096e;
+  color: #f0f0f0;
+  border-radius: 4px;
+  font: 15px/18px Consolas, monospace;
+  font-weight: bold;
+}
+
+.inspector-json li.object > a:before,
+.inspector-json li.array > a:before {
+  content: '[–]';
+  width: auto;
+  font-weight: bold;
+}
+
+.inspector-json li.collapsed > a:before {
+  content: '[+]';
+  width: auto;
+  font-weight: bold;
+}
+
+.inspector-json [data-path="this.browser.name"] span,
+.inspector-json [data-path="this.browser.version"] span,
+.inspector-json [data-path="this.os.name"] span,
+.inspector-json [data-path="this.os.version"] span {
+  font-weight: bold;
+  color: #b71c1c;
+}
+
+a {
+  text-decoration: none;
+}
