@@ -39,6 +39,33 @@ html, body {
   color: #b71c1c;
 }
 
+.upload-form {
+  margin-bottom: 20px;
+}
+
+.upload-form textarea {
+  display: none;
+}
+
+.btn-upload {
+  display: inline-block;
+  margin: 0 25px;
+  padding: 3px 6px;
+  border: 2px solid #1d096e;
+  border-radius: 3px;
+  color: #283593;
+  font: 13px/18px Consolas, monospace;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: #fff;
+}
+
+.btn-upload:hover {
+  background: #1d096e;
+  color: #e0e0e0;
+}
+
 a {
   text-decoration: none;
 }
