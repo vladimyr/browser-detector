@@ -7,7 +7,7 @@
     "build": "browserify -t bubleify index.js > ./dist/bundle.js",
     "build-dev": "browserify -t bubleify index.js -d > ./dist/bundle.js",
     "watch": "watchify index.js -t bubleify -d -o ./dist/bundle.js -v",
-    "deploy": "surge -p ./dist/ -d detector.surge.sh",
+    "deploy": "surge -p ./dist/ -d https://detector.surge.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "vladimyr",
