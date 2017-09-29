@@ -14,12 +14,12 @@
   "license": "MIT",
   "devDependencies": {
     "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
-    "browserify": "^14.1.0",
+    "browserify": "^14.4.0",
     "bubleify": "^0.7.0",
     "watchify": "^3.9.0"
   },
   "dependencies": {
     "hyperscript": "^2.0.2",
-    "ua-parser-js": "github:vladimyr/ua-parser-js#develop"
+    "ua-parser-js": "^0.7.14"
   }
 }
