@@ -17,11 +17,17 @@ function template(name, version, obj) {
   const inspector = new ObjectInspector({ element: $objectDump, collapsed: false });
   inspector.view(obj);
 
+  const value = JSON.stringify(obj, null, 2);
   return h(`.inspector .inspector-${name}`,
     h('a', { href: packageUrl(name), target: '_blank' },
       h('span.title', `${name}@${version}`)),
     $objectDump,
+    // ix.io upload button
+    h('form.upload-form', { action: 'http://ix.io', method: 'POST', 'accept-charset': 'UTF-8' },
+      h('textarea', { name: 'f:1', value }),
+      h('input.btn-upload', { type: 'submit', value: 'Upload to ix.io' })),
+    // sprunge upload button
     h('form.upload-form', { action: 'http://sprunge.us', method: 'POST', 'accept-charset': 'UTF-8' },
-      h('textarea', { name: 'sprunge', value: JSON.stringify(obj, null, 2) }),
-      h('input.btn-upload', { type: 'submit', value: 'Upload to sprunge.us' })));
+      h('textarea', { name: 'sprunge', value }),
+      h('input.btn-upload', { type: 'submit', value: 'Upload to sprunge.us' })))
 }

@@ -40,7 +40,9 @@ html, body {
 }
 
 .upload-form {
+  float: left;
   margin-bottom: 20px;
+  margin-right: -25px;
 }
 
 .upload-form textarea {
