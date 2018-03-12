@@ -22,12 +22,14 @@ function template(name, version, obj) {
     h('a', { href: packageUrl(name), target: '_blank' },
       h('span.title', `${name}@${version}`)),
     $objectDump,
-    // ix.io upload button
-    h('form.upload-form', { action: 'http://ix.io', method: 'POST', 'accept-charset': 'UTF-8' },
-      h('textarea', { name: 'f:1', value }),
-      h('input.btn-upload', { type: 'submit', value: 'Upload to ix.io' })),
-    // sprunge upload button
-    h('form.upload-form', { action: 'http://sprunge.us', method: 'POST', 'accept-charset': 'UTF-8' },
-      h('textarea', { name: 'sprunge', value }),
-      h('input.btn-upload', { type: 'submit', value: 'Upload to sprunge.us' })))
+    h('.upload',
+      // ix.io upload button
+      h('form.upload-form', { action: 'http://ix.io', method: 'POST', 'accept-charset': 'UTF-8' },
+        h('textarea', { name: 'f:1', value }),
+        h('input.btn-upload', { type: 'submit', value: 'Upload to ix.io' })),
+      // sprunge upload button
+      h('form.upload-form', { action: 'http://sprunge.us', method: 'POST', 'accept-charset': 'UTF-8' },
+        h('textarea', { name: 'sprunge', value }),
+        h('input.btn-upload', { type: 'submit', value: 'Upload to sprunge.us' })))
+    )
 }
