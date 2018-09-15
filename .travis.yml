@@ -1,0 +1,10 @@
+language: node_js
+
+script:
+  - npm run build
+
+deploy:
+  provider: surge
+  project: ./dist/
+  domain: https://detector.surge.sh
+  skip_cleanup: true

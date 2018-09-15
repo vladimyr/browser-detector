@@ -1,25 +1,45 @@
 {
+  "private": true,
   "name": "browser-detector",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "browserify -t bubleify index.js > ./dist/bundle.js",
-    "build-dev": "browserify -t bubleify index.js -d > ./dist/bundle.js",
-    "watch": "watchify index.js -t bubleify -d -o ./dist/bundle.js -v",
-    "deploy": "surge -p ./dist/ -d https://detector.surge.sh",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "dev": "parcel index.html",
+    "clean": "del-cli dist",
+    "prebuild": "npm run clean",
+    "build": "parcel build index.html --no-source-maps",
+    "predeploy": "npm run build",
+    "deploy": "surge -p ./dist/ -d https://detector.surge.sh"
   },
-  "author": "vladimyr",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vladimyr/browser-detector.git"
+  },
+  "author": {
+    "email": "d.vladimyr@gmail.com",
+    "name": "Dario Vladovic",
+    "url": "https://github.com/vladimyr"
+  },
   "license": "MIT",
-  "devDependencies": {
-    "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
-    "browserify": "^16.1.0",
-    "bubleify": "^1.1.0",
-    "watchify": "^3.10.0"
+  "bugs": {
+    "url": "https://github.com/vladimyr/browser-detector/issues"
   },
+  "homepage": "https://github.com/vladimyr/browser-detector",
   "dependencies": {
     "hyperscript": "^2.0.2",
-    "ua-parser-js": "^0.7.17"
+    "ua-parser-js": "^0.7.18"
+  },
+  "devDependencies": {
+    "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
+    "del-cli": "^1.1.0",
+    "eslint-config-semistandard": "^12.0.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^4.0.0",
+    "parcel-bundler": "^1.9.7"
   }
 }

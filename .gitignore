@@ -5,11 +5,9 @@ node_modules/
 .vscode
 *.sublime-*
 
-# distribution folder
-dist/*
-!dist/index.html
-!dist/style.css
-!dist/spinkit.css
+# build
+.cache
+dist
 
 # OS generated stuff
 .DS_Store
