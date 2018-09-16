@@ -1,5 +1,6 @@
 'use strict';
 
+import assign from 'object-assign';
 import h from 'hyperscript';
 import ObjectInspector from 'Inspector-JSON';
 import UAParser, { VERSION as version } from 'ua-parser-js';
@@ -29,7 +30,7 @@ function template(name, version, obj) {
 
 function jsonInspector(obj, options) {
   const element = h('.object-dump');
-  options = Object.assign({ element }, options);
+  options = assign({ element }, options);
   const inspector = new ObjectInspector(options);
   inspector.view(obj);
   return element;
