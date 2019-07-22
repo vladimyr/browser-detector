@@ -35,7 +35,7 @@
   "devDependencies": {
     "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
     "del-cli": "^2.0.0",
-    "eslint-config-semistandard": "^13.0.0",
+    "eslint-config-semistandard": "^14.0.0",
     "eslint-config-standard": "^13.0.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^9.0.0",
