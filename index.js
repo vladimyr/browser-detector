@@ -1,5 +1,3 @@
-'use strict';
-
 import html from 'nanohtml';
 import ObjectInspector from 'Inspector-JSON';
 import UAParser, { VERSION as version } from 'ua-parser-js';
