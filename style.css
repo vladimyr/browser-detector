@@ -3,19 +3,27 @@ html, body {
   padding: 0;
 }
 
+.inspector {
+  font-family: "Fira Mono", Consolas, "Andale Mono WT", "Andale Mono",
+    "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
+    "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco,
+    "Courier New", Courier, monospace;
+}
+
 .inspector-json {
-  padding: 6px 25px;
+  padding: 0.375rem 1.5625rem;
+  font-family: inherit;
 }
 
 .inspector .title {
   display: inline-block;
-  margin: 20px 25px 0 25px;
-  padding: 4px 8px;
+  margin: 1.25rem 1.5625rem 0 1.5625rem;
+  padding: 0.25rem 0.5rem;
   background: #1d096e;
   color: #f0f0f0;
   border-radius: 4px;
-  font: 15px/18px Consolas, monospace;
-  font-weight: bold;
+  font-size: 0.9375rem;
+  line-height: 1.125rem;
 }
 
 .inspector-json li.object > a:before,
@@ -40,13 +48,13 @@ html, body {
 }
 
 .upload {
-  margin: 0 25px 20px;
+  margin: 0 1.5625rem 1.25rem;
   overflow: auto;
 }
 
 .upload-form {
   float: left;
-  margin: 0 8px 10px 0;
+  margin: 0 0.5rem 0.625rem 0;
 }
 
 .upload-form textarea {
@@ -55,11 +63,13 @@ html, body {
 
 .btn-upload {
   display: inline-block;
-  padding: 3px 6px;
-  border: 2px solid #1d096e;
+  padding: 0.1875rem 0.375rem;
+  border: 0.125rem solid #1d096e;
   border-radius: 3px;
   color: #283593;
-  font: 13px/18px Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-family: inherit;
   font-weight: bold;
   cursor: pointer;
   -webkit-appearance: none;
