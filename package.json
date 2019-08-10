@@ -11,7 +11,8 @@
     "prebuild": "npm run clean",
     "build": "parcel build index.html --no-source-maps",
     "predeploy": "npm run build",
-    "deploy": "surge -p ./dist/ -d https://detector.surge.sh"
+    "deploy": "surge -p ./dist/ -d https://detector.surge.sh",
+    "postshrinkwrap": "rewrite-lockfile package-lock.json"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,12 @@
   },
   "homepage": "https://github.com/vladimyr/browser-detector",
   "dependencies": {
+    "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
     "nanohtml": "^1.6.3",
     "ua-parser-js": "^0.7.20"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
     "del-cli": "^2.0.0",
     "eslint": "^6.1.0",
     "eslint-config-semistandard": "^14.0.0",
@@ -42,6 +43,7 @@
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
-    "parcel-bundler": "^1.12.3"
+    "parcel-bundler": "^1.12.3",
+    "rewrite-lockfile": "^1.0.0"
   }
 }
