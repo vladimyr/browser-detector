@@ -28,11 +28,11 @@
   },
   "homepage": "https://github.com/vladimyr/browser-detector",
   "dependencies": {
-    "hyperscript": "^2.0.2",
-    "object-assign": "^4.1.1",
+    "nanohtml": "^1.6.3",
     "ua-parser-js": "^0.7.20"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
     "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
     "del-cli": "^2.0.0",
     "eslint": "^6.1.0",

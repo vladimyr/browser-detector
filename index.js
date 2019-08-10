@@ -1,45 +1,52 @@
 'use strict';
 
-import assign from 'object-assign';
-import h from 'hyperscript';
+import html from 'nanohtml';
 import ObjectInspector from 'Inspector-JSON';
 import UAParser, { VERSION as version } from 'ua-parser-js';
-const urlParser = document.createElement('a');
 
-const domain = url => {
-  urlParser.href = url;
-  return urlParser.hostname;
-};
-const packageUrl = name => `https://npm.im/${name}`;
+const domain = url => (new URL(url)).hostname;
+const packageUrl = (name, version) => `https://npm.im/${name}/v/${version}`;
 
 const parser = new UAParser();
 const $output = document.querySelector('.inspectors');
-const $fragment = template('ua-parser-js', version, parser.getResult());
-$output.appendChild($fragment);
+$output.appendChild(app({
+  name: 'ua-parser-js',
+  version,
+  result: parser.getResult()
+}));
 
-function template(name, version, obj) {
-  const json = JSON.stringify(obj, null, 2);
-  return h(`.inspector .inspector-${name}`,
-    h('a', { href: packageUrl(name), target: '_blank' },
-      h('span.title', `${name}@${version}`)),
-    jsonInspector(obj, { collapsed: false }),
-    h('.upload',
-      uploadButton('http://ix.io', { 'f:1': json }),
-      uploadButton('http://sprunge.us', { sprunge: json })));
+function app({ name, version, result } = {}) {
+  const json = JSON.stringify(result, null, 2);
+  return html`
+    <div class="inspector inspector-${name}">
+      <a href=${packageUrl(name, version)} target="_blank">
+        <span class="title">${`${name}@${version}`}</span>
+      </a>
+      ${jsonInspector({ value: result, config: { collapsed: false } })}
+      <div class="upload">
+        ${uploadButton({ action: 'http://ix.io', value: { 'f:1': json } })}
+        ${uploadButton({ action: 'http://sprunge.us', value: { sprunge: json } })}
+      </div>
+    </div>
+  `;
 }
 
-function jsonInspector(obj, options) {
-  const element = h('.object-dump');
-  options = assign({ element }, options);
-  const inspector = new ObjectInspector(options);
-  inspector.view(obj);
+function jsonInspector({ value, config } = {}) {
+  const element = html`
+    <div class="object-dump"></div>
+  `;
+  const inspector = new ObjectInspector({ ...config, element });
+  inspector.view(value);
   return element;
 }
 
-function uploadButton(action, payload, label = `Upload to ${domain(action)}`) {
-  const [name] = Object.keys(payload);
-  const value = payload[name];
-  return h('form.upload-form', { action, method: 'POST', 'accept-charset': 'UTF-8' },
-    h('textarea', { name, value }),
-    h('input.btn-upload', { type: 'submit', value: label }));
+function uploadButton({ action, value, label = `Upload to ${domain(action)}` } = {}) {
+  const [name] = Object.keys(value);
+  value = value[name];
+  return html`
+    <form class="upload-form" action=${action} method="POST" accept-charset="UTF-8">
+      <textarea name=${name}>${value}</textarea>
+      <input class="btn-upload" type="submit" value=${label}></input>
+    </form>
+  `;
 }
