@@ -5,7 +5,7 @@ import ObjectInspector from 'Inspector-JSON';
 import UAParser, { VERSION as version } from 'ua-parser-js';
 
 const domain = url => (new URL(url)).hostname;
-const packageUrl = (name, version) => `https://npm.im/${name}/v/${version}`;
+const packageUrl = (name, version) => `https://npmjs.com/package/${name}/v/${version}`;
 
 const parser = new UAParser();
 const $output = document.querySelector('.inspectors');
