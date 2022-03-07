@@ -31,7 +31,7 @@
   "dependencies": {
     "Inspector-JSON": "sparkartgroup/Inspector-JSON#0.1.0",
     "nanohtml": "^1.6.3",
-    "ua-parser-js": "^0.7.24"
+    "ua-parser-js": "^0.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
