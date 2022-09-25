@@ -37,7 +37,7 @@
     "@babel/core": "^7.5.5",
     "del-cli": "^3.0.0",
     "eslint": "^7.0.0",
-    "eslint-config-semistandard": "^15.0.0",
+    "eslint-config-semistandard": "^17.0.0",
     "eslint-config-standard": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^11.0.0",
